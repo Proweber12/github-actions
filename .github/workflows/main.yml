@@ -11,5 +11,7 @@ jobs:
         run: ls -lah ${{ github.workspace }}
       - name: Go to workdir
         run: cd ./time-app
+      - name: Path to app directories
+        run: pwd
       - name: Project build
         run: docker compose up
