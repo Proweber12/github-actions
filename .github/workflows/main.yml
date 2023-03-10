@@ -5,5 +5,7 @@ jobs:
   build-timer:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
       - name: Project build
         run: cd ${{ github.workspace }}/time-app && docker compose up -d
