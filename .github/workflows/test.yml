@@ -1,0 +1,9 @@
+name: Test
+on: workflow_dispatch
+jobs:
+  Test-Action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
