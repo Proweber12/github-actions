@@ -8,9 +8,9 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: List directories
-        run: ls -lah ${{ github.workspace }}
+        run: ls -lah
       - name: Go to workdir
-        run: cd ./time-app
+        run: cd ${{ github.workspace }}/time-app
       - name: Path to app directories
         run: pwd
       - name: Project build
