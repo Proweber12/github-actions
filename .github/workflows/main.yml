@@ -2,7 +2,7 @@ name: My First Pipeline
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: push
 jobs:
-  runs-on: ubuntu-latest
   Print-text:
+    runs-on: ubuntu-latest
     steps:
       - echo "Hello, GitHub Actions"
