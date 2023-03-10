@@ -5,6 +5,8 @@ jobs:
   build-timer:
     runs-on: ubuntu-latest
     steps:
+      - name: List directories
+        run: ls -lah
       - name: Go to workdir
         run: cd ./time-app
       - name: Project build
