@@ -10,6 +10,6 @@ jobs:
       - name: List directories
         run: ls -lah
       - name: Go to workdir and path to app directories
-        run: cd ${{ github.workspace }}/time-app && pwd
+        run: cd ${{ github.workspace }}/time-app && pwd && ls -lah
       - name: Project build
         run: docker compose up
