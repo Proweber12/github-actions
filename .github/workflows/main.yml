@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List directories
-        run: ls -lah
+        run: ls -lah ${{ github.workspace }}
       - name: Go to workdir
         run: cd ./time-app
       - name: Project build
