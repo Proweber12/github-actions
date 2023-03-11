@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Frontend package install
         run: cd ${{ github.workspace }}/time-app/frontend && npm i
+      - name: List directories
+        run: cd  ${{ github.workspace }}/time-app/frontend && ls -lah
       - name: Frontend build
         run: cd ${{ github.workspace }}/time-app/frontend && npm run build
       - name: List directories
