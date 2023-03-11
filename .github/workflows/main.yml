@@ -2,10 +2,39 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: workflow_dispatch
 jobs:
-  build-timer:
+  build-api-timer:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Project build
-        run: cd ${{ github.workspace }}/time-app && docker compose up -d
+      - name: API package install
+        run: cd ${{ github.workspace }}/time-app/api && npm i
+      - name: API build
+        run: echo "Build API"
+  build-frontend-timer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Frontend package install
+        run: cd ${{ github.workspace }}/time-app/frontend && npm i
+      - name: Frontend build
+        run: cd ${{ github.workspace }}/time-app/frontend && npm run build
+  test-api-timer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: API package install
+        run: cd ${{ github.workspace }}/time-app/api && npm i
+      - name: API test
+        run: echo "Test API"
+  test-frontend-timer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Frontend package install
+        run: cd ${{ github.workspace }}/time-app/frontend && npm i
+      - name: Frontend test
+        run: echo "Test frontend"
