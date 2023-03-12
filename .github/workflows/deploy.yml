@@ -14,9 +14,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: set -eu
-      - run: mkdir ~/.ssh
-      - run: echo "${{ secrets.SSH_KEY }}" > ~/.ssh/key
-      - run: chmod 600 ~/.ssh/key
+      - run: mkdir $HOME/.ssh
+      - run: echo "${{ secrets.SSH_KEY }}" > $HOME/.ssh/key
+      - run: chmod 600 $HOME/.ssh/key
 
-      - run: rsync -e "ssh -i ~/.ssh/key -o StrictHostKeyChecking=no" 
+      - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" 
              --archive --compress --delete . root@194.67.118.175:/var/www/proweber/html/
