@@ -1,6 +1,6 @@
 name: Deploy
 
-on: 
+on:
   workflow_dispatch
 
 env:
@@ -18,7 +18,7 @@ jobs:
           with:
             key: ${{ secrets.SSH_KEY_REG_RU }}
             known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
-            
+
       - name: Generate auth hosts
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
       # Deploy
