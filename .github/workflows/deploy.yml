@@ -1,0 +1,16 @@
+name: Deploy
+
+on: workflow_dispatch
+
+jobs:
+  Test-Deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.14.0]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: set -eu

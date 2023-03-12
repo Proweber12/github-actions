@@ -1,7 +1,0 @@
-name: Test Context
-on: workflow_dispatch
-jobs:
-  Test-Context:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "${{ toJSON(github) }}"
