@@ -1,6 +1,7 @@
 name: Deploy
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch
 
 env:
   SERVER_HOST: 194.67.118.175
@@ -13,10 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install SSH key
-          uses: shimataro/ssh-key-action@v2
-          with:
-            key: ${{ secrets.SSH_KEY_REG_RU }}
-            known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY_REG_RU }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
 
       - name: Generate auth hosts
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
