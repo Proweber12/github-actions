@@ -1,7 +1,6 @@
 name: Deploy
 
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 env:
   SERVER_HOST: 194.67.118.175
