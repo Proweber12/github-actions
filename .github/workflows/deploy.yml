@@ -1,22 +1,25 @@
 name: Deploy
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch
+
+env:
+  SERVER_HOST: 194.67.118.175
+  SERVER_USER: root
+  SERVER_PATH: /app/www
 
 jobs:
   Test-Deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.14.0]
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: set -eu
-      - run: mkdir ~/.ssh
-      - run: echo "${{ secrets.SSH_KEY }}" > ~/.ssh/key
-      - run: chmod 600 ~/.ssh/key
-
-      - run: rsync -e "ssh -i ~/.ssh/key -o StrictHostKeyChecking=no" 
-             --archive --compress --delete . pepelsbey@pepelsbey.dev:/var/www/pepelsbey.dev/html/
+      - name: Install SSH key
+          uses: shimataro/ssh-key-action@v2
+          with:
+            key: ${{ secrets.SSH_KEY_REG_RU }}
+            known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+            
+      - name: Generate auth hosts
+        run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
+      # Deploy
+      - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
