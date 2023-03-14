@@ -4,7 +4,7 @@ on:
   workflow_dispatch
 
 env:
-  SERVER_HOST: 194.67.118.175
+  SERVER_HOST: 95.163.236.53
   SERVER_USER: root
   SERVER_PATH: /app/www
 
@@ -23,3 +23,4 @@ jobs:
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
       # Deploy
       - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
+      # - run: ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}
