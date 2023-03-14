@@ -23,4 +23,4 @@ jobs:
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
       # Deploy
       - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
-      # - run: ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}
+      - run: ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} && ls -lah && cd ~/.ssh/ && ls -lah
