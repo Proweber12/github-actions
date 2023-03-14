@@ -24,3 +24,5 @@ jobs:
       # Deploy
       - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
       - run: ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} && pwd && ls -lah && cd ~/.ssh/ && ls -lah
+      - run: pwd && ls -lah
+      - run: ssh ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }} && pwd && cd ${{ github.workspace }} && ls -lah && cd ~/.ssh/ && ls -lah
