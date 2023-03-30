@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is ${{ env.DAY_OF_WEEKEND }}!"
+        run: echo "$Greeting $First_Name. Today is ${{ env.DAY_OF_WEEKSS }}!"
