@@ -10,4 +10,4 @@ jobs:
     environment: DAY_OF_WEEKSS
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEKEND!"
+        run: echo "$Greeting $First_Name. Today is ${{ vars.DAY_OF_WEEKEND }}!"
