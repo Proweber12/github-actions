@@ -13,6 +13,6 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: printenv
+        run: echo ${{ vars.DAY_OF_WEEK }}, ${{ vars.Greeting }}, ${{ vars.First_Name }}
         env:
           First_Name: Mona
