@@ -7,6 +7,7 @@ on:
 jobs:
   greeting_job:
     runs-on: ubuntu-latest
+    environment: DAY_OF_WEEKSS
     steps:
       - name: "Say Hello Mona it's Monday"
         run: echo "$Greeting $First_Name. Today is ${{ vars.DAY_OF_WEEKEND }}!"
